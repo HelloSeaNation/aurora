@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "name": "Baby Blue Dress",
+        "price": 49.99,
+        "imgUrl": "../assets/baby-blue-floral-front.png",
+        "hoverImage": "../assets/baby-blue-floral-back.png"
+    },
+    {
+        "id": 2,
+        "name": "Light Brown Floral Dress",
+        "price": 39.99,
+        "imgUrl": "../assets/light-brown-floral-front.png",
+        "hoverImage": "../assets/light-brown-floral-back.png"
+    },
+    {
+        "id": 3,
+        "name": "Green Tie-Up Dress",
+        "price": 39.99,
+        "imgUrl": "../assets/green-strap-front.png",
+        "hoverImage": "../assets/green-strap-back.png"
+    },
+    {
+        "id": 4,
+        "name": "Black Short Sleeve Dress",
+        "price": 25.99,
+        "imgUrl": "../assets/black-short-sleeve-front.png",
+        "hoverImage": "../assets/black-short-sleeve-back.png"
+    },
+    {
+        "id": 5,
+        "name": "Short Dark Blue Dress",
+        "price": 48.99,
+        "imgUrl": "../assets/dark-blue-short-front.png",
+        "hoverImage": "../assets/dark-blue-short-back.png"
+    },
+    {
+        "id": 6,
+        "name": "Leopard Print Dress",
+        "price": 55.99,
+        "imgUrl": "../assets/leopard-dress-front.png",
+        "hoverImage": "../assets/leopard-dress-back.png"
+    },
+    {
+        "id": 7,
+        "name": "Orange Dress",
+        "price": 44.99,
+        "imgUrl": "../assets/orange-dress-front.png",
+        "hoverImage": "../assets/orange-dress-back.png"
+    },
+    {
+        "id": 8,
+        "name": "Red Stripe Dress",
+        "price": 54.99,
+        "imgUrl": "../assets/red-stripe-dress-front.png",
+        "hoverImage": "../assets/red-stripe-dress-back.png"
+    },
+    {
+
+        "id": 9,
+        "name": "Long blue Floral Dress",
+        "price": 59.99,
+        "imgUrl": "../assets/long-blue-floral-front.png",
+        "hoverImage": "../assets/long-blue-floral-back.png"
+    },
+        
+    {
+        "id": 10,
+        "name": "Asymmetrical Neck",
+        "price": 54.99,
+        "imgUrl": "../assets/asymmetrical-neck-front.png",
+        "hoverImage": "../assets/asymmetrical-neck-back.png"
+    },
+
+    {
+        "id": 11,
+        "name": "Ombre tone",
+        "price": 39.99,
+        "imgUrl": "../assets/ombre-front.png",
+        "hoverImage": "../assets/ombre-back.png"
+    },
+
+    {
+        "id": 12,
+        "name": "Sunflower dress",
+        "price": 29.99,
+        "imgUrl": "../assets/sunflower-front.png",
+        "hoverImage": "../assets/sunflower-back.png"
+    }
+]

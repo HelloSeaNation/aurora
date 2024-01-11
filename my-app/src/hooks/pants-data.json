@@ -1,0 +1,65 @@
+[
+    {
+        "id": 20,	
+        "name": "Drawstring pants",
+        "price": 19.99,
+        "imgUrl": "../assets/drawstring-front.png",
+        "hoverImage": "../assets/drawstring-back.png"
+    },
+
+    {
+        "id": 21,
+        "name": "Elastic waist sport pants",
+        "price": 19.99,
+        "imgUrl": "../assets/elastic-waist-front.png",
+        "hoverImage": "../assets/elastic-waist-back.png"
+    },
+
+    {
+        "id": 22,
+        "name": "Graphic wide pants",
+        "price": 17.99,
+        "imgUrl": "../assets/graphic-wide-front.png",
+        "hoverImage": "../assets/graphic-wide-back.png"
+    },
+
+    {
+        "id": 23,
+        "name": "Hip hop cargo pants",
+        "price": 19.99,
+        "imgUrl": "../assets/hip-hop-cargo-front.png",
+        "hoverImage": "../assets/hip-hop-cargo-back.png"
+    },
+
+    {
+        "id": 24,
+        "name": "Plaid paint pants",
+        "price": 15.99,
+        "imgUrl": "../assets/plaid-paint-front.png",
+        "hoverImage": "../assets/plaid-paint-back.png"
+    },
+
+    {
+        "id": 25,  
+        "name": "Solid color pants",
+        "price": 14.99,
+        "imgUrl": "../assets/solid-color-front.png",
+        "hoverImage": "../assets/solid-color-back.png"
+    },
+
+    {
+        "id": 26,
+        "name": "Sporty elastic pants",
+        "price": 20.99,
+        "imgUrl": "../assets/sporty-elastic-front.png",
+        "hoverImage": "../assets/sporty-elastic-back.png"
+    },
+
+    {
+        "id": 27,
+        "name": "Waist Tie",
+        "price": 19.99,
+        "imgUrl": "../assets/waist-tie-front.png",
+        "hoverImage": "../assets/waist-tie-back.png"
+    }
+]

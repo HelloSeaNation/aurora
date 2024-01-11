@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Faqs from "./pages/faqs";
+import { Box} from "@chakra-ui/react";
+import NavigationBar from "./components/NavigationBar";
+import TopBar from "./components/TopBar";
+import Home from "./pages/Home"
+import ContactUs from "./pages/contact-us"
+import ShoppingCart from "./pages/shopping-cart"
+import Dresses from "./pages/DressesPage"
+import Pants from "./pages/PantsPage";
+import Tops from "./pages/TopsPage";
+import IndividualItem from "./pages/individualItem";
+import { ShoppingCartProvider } from "./context/cartFunction";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ShoppingCartProvider>
+      <HashRouter basename="/">
+        <Box backgroundColor="#FFFFFF">
+          <TopBar />
+          <NavigationBar />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about" />
+            <Route path="/dresses" element={<Dresses />}></Route>
+            <Route path="/pants" element={<Pants />}></Route>
+            <Route path="/tops" element={<Tops />}></Route>
+            <Route path="/:itemId" element={<IndividualItem />}></Route>
+            <Route path="/faqs" element={<Faqs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
+          </Routes>
+        </Box>
+      </HashRouter>
+    </ShoppingCartProvider>
+      
+    </>
   );
 }
 

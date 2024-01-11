@@ -1,0 +1,65 @@
+[
+    {
+        "id": 40,
+        "name": "Asymmetrical top",
+        "price": 25.90,
+        "imgUrl": "../assets/asymmetrical-front.png",
+        "hoverImage" : "../assets/asymmetrical-back.png"
+    },
+
+    {
+        "id": 41,
+        "name": "Cute cat",
+        "price": 15.90,
+        "imgUrl": "../assets/cat-front.png",
+        "hoverImage" : "../assets/cat-back.png"
+    },
+
+    {
+        "id": 42,
+        "name": "Floral top",
+        "price": 20.90,
+        "imgUrl": "../assets/floral-front.png",
+        "hoverImage" : "../assets/floral-back.png"
+    },
+
+    {
+        "id": 43,
+        "name": "Fringe top",
+        "price": 27.90,
+        "imgUrl": "../assets/fringe-front.png",
+        "hoverImage" : "../assets/fringe-back.png"
+    },
+
+    {
+        "id": 44,
+        "name": "High neck top",
+        "price": 32.90,
+        "imgUrl": "../assets/high-neck-front.png",
+        "hoverImage" : "../assets/high-neck-back.png"
+    },
+
+    {
+        "id": 45,
+        "name": "Smiley top",
+        "price": 20.90,
+        "imgUrl": "../assets/smile-front.png",
+        "hoverImage" : "../assets/smile-back.png"
+    },
+
+    {
+        "id": 46,
+        "name": "Stripe patch",
+        "price": 19.90,
+        "imgUrl": "../assets/stripe-pocket-patch-front.png",
+        "hoverImage" : "../assets/stripe-pocket-patch-back.png"
+    },
+
+    {
+        "id": 47,
+        "name": "White V neck",
+        "price": 23.90,
+        "imgUrl": "../assets/white-v-back.png",
+        "hoverImage" : "../assets/white-v-front.png"
+    }
+]
