@@ -13,6 +13,7 @@ import Pants from "./pages/PantsPage";
 import Tops from "./pages/TopsPage";
 import IndividualItem from "./pages/individualItem";
 import { ShoppingCartProvider } from "./context/cartFunction";
+import PaymentPage from './pages/PaymentPage'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
+            <Route path="/payment" element={<PaymentPage />} />
           </Routes>
         </Box>
       </HashRouter>

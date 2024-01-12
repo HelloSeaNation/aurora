@@ -7,6 +7,8 @@ import dresses from "../hooks/dressdata.json";
 import pants from "../hooks/pants-data.json";
 import tops from "../hooks/top-data.json";
 import { formatCurrency } from "../utilities/formatCurrency";
+import {Link} from 'react-router-dom'
+
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -82,6 +84,7 @@ function ShoppingCart() {
               <Text>Includes GST. Shipping calculated at checkout</Text>
             </Flex>
             <Flex width={"80%"} margin={"auto"} justifyContent={"center"}>
+              
               <Button
                 width={"325px"}
                 height={"83px"}
@@ -90,11 +93,15 @@ function ShoppingCart() {
                 color={"#FFFFFF"}
                 border={"transparent"}
                 boxShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
+                cursor="pointer"
+                onClick={() => {window.location.href = "#/payment"}}
+
               >
                 <Text style={subtotalStyle} backgroundColor={"#028702"}>
-                  CHECKOUT
+                  Pay {formatCurrency(Number(totalPrice))}
                 </Text>
               </Button>
+              
             </Flex>
           </Box>
         ) : (
