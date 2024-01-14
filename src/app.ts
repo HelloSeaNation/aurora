@@ -14,3 +14,7 @@ app.listen(PORT, () => {
 app.get("/", (req, res) => {
     res.send(path.join(__dirname, 'frontend', 'index.html'));
 });
+
+app.get("/api", (req, res) => {
+    res.send("Hello from API.");
+});
