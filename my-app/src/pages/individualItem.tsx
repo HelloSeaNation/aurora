@@ -17,12 +17,13 @@ import {
   Text,
   Input,
   Divider,
+  Flex,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckField } from "@fortawesome/free-solid-svg-icons";
 import { formatCurrency } from "../utilities/formatCurrency";
-import { CartItem } from "../components/CartItem";
+import { format } from "date-fns";
 
 interface Item {
   id: number;
@@ -39,7 +40,7 @@ const titleText = {
 
 const textStyles = {
   fontFamily: "Koulen",
-  fontSize: "13px",
+  fontSize: "15px",
 };
 
 const rightContainer = {
@@ -80,7 +81,6 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
-  
   const [sizeError, setSizeError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const handleAddToCart = (selectedSize: string | null) => {
@@ -97,46 +97,45 @@ const IndividualItem: React.FC = () => {
   const { itemId } = useParams() as { itemId: string };
   const addReview = async () => {
     if (newReview.trim() !== "") {
-        try {
-            // Send a POST request to add the review
-            await fetch(`/api/reviews/${itemId}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ review: newReview }),
-            });
+      try {
+        // Send a POST request to add the review
+        await fetch(`/api/reviews/${itemId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ review: newReview }),
+        });
 
-            // Fetch updated reviews after adding a new review
-            const response = await fetch(`/api/reviews/${itemId}`);
-            const data = await response.json();
-            setReviews({ ...reviews, [itemId]: data.reviews });
-            setNewReview("");
-        } catch (error) {
-            console.error(error);
-        }
+        // Fetch updated reviews after adding a new review
+        const response = await fetch(`/api/reviews/${itemId}`);
+        const data = await response.json();
+        setReviews({ ...reviews, [itemId]: data.reviews });
+        setNewReview("");
+      } catch (error) {
+        console.error(error);
+      }
     }
-};
+  };
 
-useEffect(() => {
+  useEffect(() => {
     // Fetch reviews when the component mounts
     const fetchReviews = async () => {
-        try {
-            const response = await fetch(`/api/reviews/${itemId}`);
-            const data = await response.json();
-            setReviews({ ...reviews, [itemId]: data.reviews });
-        } catch (error) {
-            console.error(error);
-        }
+      try {
+        const response = await fetch(`/api/reviews/${itemId}`);
+        const data = await response.json();
+        setReviews({ ...reviews, [itemId]: data.reviews });
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     fetchReviews();
-}, [itemId]);
-
+  }, [itemId]);
 
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
     useShoppingCart();
-    
+
   const [selectedSize, setSelectedSize] = useState<string | null>(() => null);
   const quantity = getItemQuantity(Number(itemId), selectedSize || "");
   const [isHovered, setIsHovered] = useState(false);
@@ -144,7 +143,7 @@ useEffect(() => {
 
   //Array of sizes
   const sizes = ["XS", "S", "M", "L", "XL"];
-  
+
   const [reviews, setReviews] = useState<{ [key: string]: string[] }>({});
   const [newReview, setNewReview] = useState<string>("");
   const {
@@ -167,8 +166,6 @@ useEffect(() => {
 
   const { name, price, imgUrl, hoverImage } = item;
   const totalPrice = quantity === 0 ? price : price * quantity;
-
-  
 
   const buttonStyles = {
     backgroundColor: "#E8BCBC",
@@ -232,7 +229,7 @@ useEffect(() => {
           </Box>
 
           {/* render price by item.id */}
-          <Box style={textStyles}>
+          <Box fontFamily={"Koulen"}>
             <Text fontSize="20px">{formatCurrency(totalPrice)}</Text>
 
             {/* Size options */}
@@ -322,8 +319,7 @@ useEffect(() => {
                 </Button>
               ) : (
                 <Box display="flex" justifyContent="flex-start">
-    
-    <Button
+                  <Button
                     style={qualityButtonStyles}
                     onClick={() =>
                       decreaseCartQuantity(Number(itemId), selectedSize || "")
@@ -338,13 +334,11 @@ useEffect(() => {
                   >
                     +
                   </Button>
-                  
                 </Box>
               )}
             </Box>
             {/* Shipping information */}
             <Box
-              style={textStyles}
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -378,12 +372,33 @@ useEffect(() => {
         justifyContent="center"
         marginTop="10px"
       >
-        <h3>Reviews</h3>
+        <Text fontSize="25px" marginBottom="20px" fontFamily={"Koulen"}>
+          ----------------------------------- Reviews
+          ------------------------------------
+        </Text>
       </Box>
-      <Box display="flex" justify-content="space-between" width={"95%"}>
-        <Box style={leftContainer}> Hello </Box>
-        <Box style={rightContainer}>
-          <Button onClick={onOpenReview} cursor="pointer">
+      <Box
+        display="flex"
+        justifyContent={"center"}
+        flexDirection={"column"}
+        alignItems={"center"}
+      >
+        <Box>
+          <Button
+            onClick={onOpenReview}
+            cursor="pointer"
+            border={"transparent"}
+            backgroundColor={"#E8BCBC"}
+            color="white"
+            fontFamily={"Koulen"}
+            fontSize={"20px"}
+            width={"200px"}
+            height={"40px"}
+            justifyContent={"center"}
+            marginBottom={"20px"}
+            borderRadius={"15PX"}
+            _hover={{ backgroundColor: "#D3A9A9" }}
+          >
             Write a review
           </Button>
 
@@ -393,28 +408,57 @@ useEffect(() => {
             isCentered
             size={{ width: "600px", height: "400px" }}
           >
-            <ModalOverlay backgroundColor="rgba(0, 0, 0, 0.5)" />
+            <ModalOverlay backgroundColor="rgba(0, 0, 0, 0.7)" />
             <ModalContent textAlign="center" marginTop="150px">
               <ModalBody
                 backgroundColor="white"
                 width="600px"
+                height="250px"
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
+                margin="auto"
+                borderRadius={"10px"}
               >
-                <h2>Write your review</h2>
+                <Flex
+                  alignItems={"flex-start"}
+                  justifyContent={"space-between"}
+                  width={"95%"}
+                >
+                  <Text></Text>
+                  <Text fontFamily={"Koulen"} fontSize={"25px"}>
+                    {" "}
+                    Write your review
+                  </Text>
+                  <ModalCloseButton
+                    onClick={onClose}
+                    style={{
+                      width: "23px",
+                      height: "23px",
+                      backgroundColor: "#E8BCBC",
+                      border: "none",
+                      borderRadius: "5px",
+                      color: "white",
+                      marginTop: " 15px",
+                    }}
+                  />
+                </Flex>
 
                 <Input
                   value={newReview}
-                  height="150px"
-                  width="300px"
+                  height="50px"
+                  width="500px"
                   borderRadius="5px"
                   borderColor="#767676"
+                  textAlign={"left"}
                   onChange={(e) => setNewReview(e.target.value)}
                 ></Input>
 
                 <Button
-                  onClick={addReview}
+                  onClick={() => {
+                    addReview();
+                    onClose();
+                  }}
                   width="90px"
                   height="35px"
                   borderRadius="5px"
@@ -423,42 +467,26 @@ useEffect(() => {
                   fontFamily="Koulen"
                   color="white"
                   cursor="pointer"
-                  marginTop="10px"
+                  marginTop="20px"
                 >
                   Submit
                 </Button>
               </ModalBody>
-
-              <ModalCloseButton
-                onClick={onClose}
-                style={{
-                  width: "23px",
-                  height: "23px",
-                  position: "absolute",
-                  top: 3,
-                  right: 275,
-                  backgroundColor: "#E8BCBC",
-                  border: "none",
-                  borderRadius: "5px",
-                  color: "white",
-                }}
-              />
             </ModalContent>
           </Modal>
-
-          {/* display review by id */}
-          {reviews[itemId] && reviews[itemId].length > 0 && (
-            <Box marginTop="20px">
-              <Divider />
-              <label style={textStyles}>Reviews:</label>
-              {reviews[itemId].map((review, index) => (
-                <Text key={index} style={textStyles}>
-                  {review}
-                </Text>
-              ))}
-            </Box>
-          )}
         </Box>
+        {/* display review by id */}
+        {reviews[itemId] && reviews[itemId].length > 0 && (
+          <Box marginTop="20px">
+            <Divider />
+            <label style={textStyles}>All Reviews</label>
+            {reviews[itemId].map((review, index) => (
+              <Text key={index} fontFamily={"Arial"} fontSize={"13px"}>
+                {review} - {format(new Date(), "dd MMMM yyyy")}
+              </Text>
+            ))}
+          </Box>
+        )}
       </Box>
     </>
   );
