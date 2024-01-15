@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Faqs from "./pages/faqs";
@@ -14,8 +14,11 @@ import Tops from "./pages/TopsPage";
 import IndividualItem from "./pages/individualItem";
 import { ShoppingCartProvider } from "./context/cartFunction";
 import PaymentPage from './pages/PaymentPage'
+import SearchResults from './pages/SearchResults'
 
 function App() {
+  
+
   return (
     <>
     <ShoppingCartProvider>
@@ -34,6 +37,7 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/search/:itemName" element={<SearchResults />}></Route>
           </Routes>
         </Box>
       </HashRouter>

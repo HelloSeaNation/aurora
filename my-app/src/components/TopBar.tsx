@@ -16,11 +16,26 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { useShoppingCart } from "../context/cartFunction";
+import { useNavigate } from 'react-router-dom'
+import dresses from "../hooks/dressdata.json";
+import pant from "../hooks/pants-data.json";
+import top from "../hooks/top-data.json";
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  imgUrl: string;
+  hoverImage: string;
+}
 
 function TopBar() {
   const { cartQuantity} = useShoppingCart();
   const [showInput, setShowInput] = useState(false);
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const allData = [...dresses, ...top, ...pant];
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (showInput && inputRef.current) {
@@ -32,6 +47,23 @@ function TopBar() {
     setShowInput(false);
   };
 
+  const handleSearch = () => {
+    const searchTerm = inputRef.current?.value?.trim();
+    console.log('Search Term:', searchTerm);
+  
+    if (searchTerm && searchTerm !== '') {
+      const matchingProducts = allData.filter(
+        (product) => product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      console.log('Matching Products:', matchingProducts);
+  
+      setSearchResults(matchingProducts);
+      setShowInput(false);
+  
+      // Navigate to the search results page with the search input
+      navigate(`/search/${searchTerm}`); 
+    }
+  };
   return (
     <Box>
       <Flex
@@ -111,6 +143,11 @@ function TopBar() {
               marginTop: "3px",
               padding: "15px 0 15px 70px",
               boxSizing: "border-box",
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
             }}
           ></Input>
           <InputRightElement
