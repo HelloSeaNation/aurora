@@ -67,8 +67,8 @@ function Tops() {
               </Box>
               <Flex alignItems="center">
                 <Text style={cardStyles}>{formatCurrency(top.price)}</Text>
-                <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-                <Text style={{ ...cardStyles, ...cardStylesRight }}>4.5</Text>
+                {/* <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+                <Text style={{ ...cardStyles, ...cardStylesRight }}>4.5</Text> */}
               </Flex>
             </Box>
           </Card>

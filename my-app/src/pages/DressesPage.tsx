@@ -67,8 +67,8 @@ function Dresses() {
               </Box>
               <Flex alignItems="center">
                 <Text style={cardStyles}>{formatCurrency(dress.price)}</Text>
-                <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-                <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
+                {/* <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+                <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text> */}
               </Flex>
             </Box>
           </Card>

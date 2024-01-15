@@ -68,8 +68,8 @@ function Pants() {
                 </Box>
                 <Flex alignItems="center">
                   <Text style={cardStyles}>{formatCurrency(pant.price)}</Text>
-                  <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-                  <Text style={{ ...cardStyles, ...cardStylesRight }}>4.0</Text>
+                  {/* <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+                  <Text style={{ ...cardStyles, ...cardStylesRight }}>4.0</Text> */}
                 </Flex>
               </Box>
             </Card>
