@@ -15,7 +15,6 @@ import IndividualItem from "./pages/individualItem";
 import { ShoppingCartProvider } from "./context/cartFunction";
 import PaymentPage from './pages/PaymentPage'
 import SearchResults from './pages/SearchResults'
-import OrderConfirmPage from "./pages/orderConfirmPage";
 
 function App() {
   
@@ -39,7 +38,6 @@ function App() {
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/search/:itemName" element={<SearchResults />}></Route>
-            <Route path="/order-completed" element={<OrderConfirmPage />} />
           </Routes>
         </Box>
       </HashRouter>
