@@ -15,6 +15,8 @@ import IndividualItem from "./pages/individualItem";
 import { ShoppingCartProvider } from "./context/cartFunction";
 import PaymentPage from './pages/PaymentPage'
 import SearchResults from './pages/SearchResults'
+import Wishlist from './pages/wishlist'
+import { WishlistProvider } from './components/WishlistContext'
 
 function App() {
   
@@ -22,6 +24,7 @@ function App() {
   return (
     <>
     <ShoppingCartProvider>
+      <WishlistProvider>
       <HashRouter basename="/">
         <Box backgroundColor="#FFFFFF">
           <TopBar />
@@ -38,9 +41,11 @@ function App() {
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/search/:itemName" element={<SearchResults />}></Route>
+            <Route path="/wishlist" element={<Wishlist />}></Route>
           </Routes>
         </Box>
       </HashRouter>
+      </WishlistProvider>
     </ShoppingCartProvider>
       
     </>

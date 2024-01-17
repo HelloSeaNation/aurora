@@ -115,6 +115,9 @@ function NavigationBar() {
           <MenuItem as="a" href="./#/contact-us" style={MenuItemStyle}>
             Contact us
           </MenuItem>
+          <MenuItem as="a" href="./#/wishlist" style={MenuItemStyle}>
+            Wishlist
+          </MenuItem>
         </MenuList>
       </Menu>
     </Box>

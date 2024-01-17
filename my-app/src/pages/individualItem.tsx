@@ -24,6 +24,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckField } from "@fortawesome/free-solid-svg-icons";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { format } from "date-fns";
+import { useWishlist } from '../components/WishlistContext';
 
 interface Item {
   id: number;
@@ -132,6 +133,8 @@ const IndividualItem: React.FC = () => {
 
     fetchReviews();
   }, [itemId]);
+
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
     useShoppingCart();
@@ -337,6 +340,25 @@ const IndividualItem: React.FC = () => {
                 </Box>
               )}
             </Box>
+            {/* Wishlist */}
+            <Text
+              as="button"
+              backgroundColor="white"
+              borderStyle="none"
+              fontFamily="Koulen"
+              cursor="pointer"
+              padding="0px"
+              marginTop={"20px"}
+              onClick={() => {
+                if (isInWishlist(item)) {
+                  removeFromWishlist(item);
+                } else {
+                  addToWishlist(item);
+                }
+              }}
+            >
+              {isInWishlist(item) ? "Remove from wishlist" : "Add to wishlist"}
+            </Text>
             {/* Shipping information */}
             <Box
               display="flex"

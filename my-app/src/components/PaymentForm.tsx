@@ -56,7 +56,6 @@ const PaymentForm = () => {
         } else {
           // Send the token to your server for further processing
           console.log(paymentMethod);
-          window.location.href = "#/order-completed";
         }
       } catch (error) {
         console.error("Error processing payment:", error);
