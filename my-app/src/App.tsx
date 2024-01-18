@@ -17,6 +17,7 @@ import PaymentPage from './pages/PaymentPage'
 import SearchResults from './pages/SearchResults'
 import Wishlist from './pages/wishlist'
 import { WishlistProvider } from './components/WishlistContext'
+import OrderConfirmPage from "./pages/orderConfirmPage";
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
             <Route path="/shopping-cart" element={<ShoppingCart />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/search/:itemName" element={<SearchResults />}></Route>
+            <Route path="/order-confirm" element={<OrderConfirmPage/>}></Route>
             <Route path="/wishlist" element={<Wishlist />}></Route>
           </Routes>
         </Box>
